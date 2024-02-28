@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universal Credit System</title>
+  </head>
+
+  <body>
+    <h1>Welcome to Universal Credit System</h1>
+
+    <!-- <button id="connectButton">Connect</button>
+    <p>Connect your Metamask Wallet </p> -->
+
+    <h2>Create your DID</h2>
+    <label for="RollNo"></label>
+    <input type="text" id="rollnumber" placeholder="RollNo" />
+    <button id="createDIDButton">Create</button><br />
+    <p>DID:<span id="patientDetails">Enter your RollNo</span></p>
+    <br />
+
+    <h2>ViewDID</h2>
+    <label for="viewDID"></label>
+    <input type="text" id="viewDID" placeholder="rollnumber" />
+    <button id="viewDIDButton">ViewDID</button><br />
+
+    <h2>Issue Degree Certificate</h2>
+    <label for="recipientDID">RecipientDID:</label>
+    <input type="text" id="recipientDID" /><br />
+    <label for="name">Name:</label>
+    <input type="text" id="name" /><br />
+    <label for="department">Department:</label>
+    <input type="text" id="department" /><br />
+    <label for="yog ">Year of Graduation:</label>
+    <input type="number" id="yog" /><br />
+    <label for="privateKey">Private Key:</label>
+    <input type="password" id="privateKey" /><br />
+    <button id="createCredintialButton">CreateCredintial</button>
+    <div id="result"></div>
+
+    <h2>VerifyVC</h2>
+    <label for="verifyVC"></label>
+    <form>
+      Enter your VC as JSON: <br />
+      <textarea name="verifyVC" cols="40" rows="5"></textarea>
+    </form>
+    <button id="viewDIDButton">Verify</button><br />
+
+    <script src="./app.ts" type="module"></script>
+  </body>
+</html>

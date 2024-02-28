@@ -1,0 +1,23 @@
+{
+    "name": "did",
+    "version": "1.0.0",
+    "description": "VC Application implemented in typeScript using fabric-gateway",
+    "main": "src/app.js",
+    "type":"module",
+    "engines": {
+        "node": ">=18"
+    },
+
+    "engineStrict": true,
+    "author": "Hyperledger",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.9.7",
+        "@hyperledger/fabric-gateway": "~1.4.0",
+        "did-jwt": "^6.11.0",
+        "did-jwt-vc": "^3.1.0",
+        "did-resolver": "^4.0.1",
+        "elliptic": "^6.5.4",
+        "web-did-resolver": "^2.0.27"
+    }
+}
