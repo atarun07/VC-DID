@@ -10,15 +10,15 @@ import * as crypto from 'crypto';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import { TextDecoder } from 'util';
-import { ES256KSigner, hexToBytes } from "did-jwt";
+//import { ES256KSigner, hexToBytes } from "did-jwt";
 
-const createDIDButton = document.getElementById("createDIDButton") as HTMLElement;
-const createCredentialButton = document.getElementById("createCredentialButton") as HTMLElement;
-const viewDIDButton = document.getElementById("viewDIDButton") as HTMLElement;
+// const createDIDButton = document.getElementById("createDIDButton") as HTMLElement;
+// const createCredentialButton = document.getElementById("createCredentialButton") as HTMLElement;
+// const viewDIDButton = document.getElementById("viewDIDButton") as HTMLElement;
 
-createDIDButton.onclick = createDID;
-viewDIDButton.onclick = getDIDByID;
-createCredentialButton.onclick = issueVC;
+// createDIDButton.onclick = createDID;
+// viewDIDButton.onclick = getDIDByID;
+// createCredentialButton.onclick = issueVC;
 
 
 const channelName = envOrDefault('CHANNEL_NAME', 'mychannel');
@@ -72,34 +72,22 @@ async function main(): Promise<void> {
         },
     });
 
-    // try {
-    //     // Get a network instance representing the channel where the smart contract is deployed.
-    //     const network = gateway.getNetwork(channelName);
+    console.log("Done");
 
-    //     // Get the smart contract from the network.
-    //     const contract = network.getContract(chaincodeName);
+    try {
+        const network = gateway.getNetwork('channelName');
+        const contract = network.getContract('chaincodeName');
 
-    //     // Initialize a set of asset data on the ledger using the chaincode 'InitLedger' function.
-    //     await initLedger(contract);
+        const putResult = await contract.submitTransaction('put', 'time', new Date().toISOString());
+        console.log('Put result:', utf8Decoder.decode(putResult));
 
-    //     // Return all the current assets on the ledger.
-    //     await getAllAssets(contract);
+        const getResult = await contract.evaluateTransaction('get', 'time');
+        console.log('Get result:', utf8Decoder.decode(getResult));
+    } finally {
+        gateway.close();
+        client.close()
+    }
 
-    //     // Create a new asset on the ledger.
-    //     await createAsset(contract);
-
-    //     // Update an existing asset asynchronously.
-    //     await transferAssetAsync(contract);
-
-    //     // Get the asset details by assetID.
-    //     await readAssetByID(contract);
-
-    //     // Update an asset which does not exist.
-    //     await updateNonExistentAsset(contract)
-    // } finally {
-    //     gateway.close();
-    //     client.close();
-    // }
 }
 
 main().catch(error => {

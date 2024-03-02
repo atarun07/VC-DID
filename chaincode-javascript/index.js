@@ -8,5 +8,5 @@
 
 const did = require("./lib/did");
 
-module.exports.DID = did;
+module.exports.DIDContract = did;
 module.exports.contracts = [did];

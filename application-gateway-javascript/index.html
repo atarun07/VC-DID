@@ -39,10 +39,14 @@
     <div id="result"></div>
 
     <h2>VerifyVC</h2>
-    <label for="viewDID"></label>
-    <input type="text" id="viewDID" placeholder="rollnumber" />
+    <label for="verifyVC"></label>
+    <form>
+      Enter your VC as JSON: <br />
+      <textarea name="verifyVC" cols="40" rows="5"></textarea>
+    </form>
     <button id="viewDIDButton">Verify</button><br />
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 
-    <script src="./app.js" type="module"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

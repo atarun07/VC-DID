@@ -1,0 +1,33 @@
+[
+    {
+        "invoke" : "createDID",
+        "args":["3"]
+    },
+
+    {
+        "query" : "getDID",
+        "args":["2"]
+    },
+
+    {
+        "invoke": "createVC",
+        "args":[{
+  "sub": "did:web:skounis.github.io",
+  "nbf": 1562950282,
+  "vc": {
+    "@context": ["https://www.w3.org/2018/credentials/v1"],
+    "type": ["VerifiableCredential"],
+    "credentialSubject": {
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Baccalauréat en musiques numériques"
+      }
+    }
+  }
+}
+,{
+    "did": "did:web:skounis.github.io",
+    "signer": "11093711593198763560594067187649662143092047804732781349097990173130889043305"
+}]
+    }
+]
